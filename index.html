@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keenu Rana 💗</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 12px;
+    background: linear-gradient(135deg, #ffb6d9, #d7a5ff, #ffe0eb);
+    background-size: 300% 300%;
+    animation: bg 7s infinite alternate;
+}
+
+@keyframes bg {
+    to { background-position: 100% 100%; }
+}
+
+.card {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 430px;
+    padding: 23px;
+    text-align: center;
+    background: rgba(255,255,255,.88);
+    border: 2px solid white;
+    border-radius: 28px;
+    box-shadow: 0 0 35px #e83e9360;
+    animation: entrance 1s ease;
+}
+
+@keyframes entrance {
+    from { opacity: 0; transform: translateY(35px) scale(.9); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.photo {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    object-position: center 70%;
+    border-radius: 20px;
+    border: 3px solid white;
+    box-shadow: 0 5px 18px #c64b9060;
+}
+
+.tag {
+    margin-top: 16px;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #a63b77;
+    font-weight: bold;
+}
+
+h1 {
+    color: #e52d79;
+    font-size: clamp(27px, 7vw, 36px);
+    margin: 12px 0;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    to { text-shadow: 0 0 16px #ff65b0; }
+}
+
+.subtitle {
+    color: #77415f;
+    line-height: 1.6;
+    font-size: 15px;
+    margin: 10px 0 18px;
+}
+
+.notice {
+    padding: 15px 10px;
+    border: 2px dashed #ff72ad;
+    border-radius: 16px;
+    background: #fff0f7;
+    color: #bd286a;
+    line-height: 1.9;
+    font-size: 14px;
+}
+
+.question {
+    color: #d51e72;
+    font-weight: 900;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+button {
+    border: 0;
+    border-radius: 30px;
+    padding: 14px 20px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform .2s;
+}
+
+button:active {
+    transform: scale(.92);
+}
+
+#yes {
+    background: linear-gradient(45deg, #ff2784, #b832ff);
+    color: white;
+    box-shadow: 0 5px 15px #e64a9c55;
+}
+
+#no {
+    color: #d41469;
+    background: white;
+}
+
+#message {
+    color: #d41469;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.6;
+    margin-top: 18px;
+}
+
+.float {
+    position: fixed;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    z-index: 10;
+    animation: explode 2.8s ease-out forwards;
+}
+
+@keyframes explode {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(.2) rotate(0deg);
+    }
+    35% {
+        opacity: 1;
+        transform: translate(var(--x), var(--y)) scale(1.5)
+                   rotate(180deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--x2), var(--y2)) scale(.5)
+                   rotate(500deg);
+    }
+}
+
+.shake {
+    animation: shake .45s;
+}
+
+@keyframes shake {
+    0%,100% { transform: translateX(0); }
+    20%,60% { transform: translateX(-7px) rotate(-1deg); }
+    40%,80% { transform: translateX(7px) rotate(1deg); }
+}
+
+#celebration {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 8;
+    overflow: hidden;
+}
+
+.footer {
+    margin-top: 18px;
+    color: #b35b85;
+    font-size: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="celebration"></div>
+
+<main class="card" id="card">
+
+    <!-- Keep mehr.jpg in the same folder as this HTML file -->
+    <img class="photo" src="mehr.jpg"
+         alt="Our photo together">
+
+    <div class="tag">🚨purposal 🚨</div>
+
+    <h1>KEENU RANA(paddu) 💗</h1>
+
+    <p class="subtitle">
+        Your Sunday plans are about to get interesting. 🤪
+    </p>
+
+    <div class="notice">
+        📅 <b>SUNDAY DATE PROPOSAL</b><br>
+        🍟 Food & fun<br>
+        😂 Unlimited bakwaas<br>
+        📸 Pictures are compulsory<br>
+        💅 Attitude is allowed
+    </div>
+
+    <div class="question">
+        SO, KEENU... ARE YOU IN? 👀
+    </div>
+
+    <div class="buttons">
+        <button id="yes" onclick="sayYes()">
+            HELL YESSS 🔥
+        </button>
+
+        <button id="no" onclick="sayNo()">
+            NO 😂
+        </button>
+    </div>
+
+    <div id="message"></div>
+
+    <div class="footer">
+        MADE FOR KEENU RANA WITH 💗 
+    </div>
+</main>
+
+<script>
+let accepted = false;
+
+function explodeHearts() {
+    const layer = document.getElementById("celebration");
+    const symbols = ["💗", "💖", "💕", "💘", "💝", "✨", "🎉", "🥳"];
+
+    // Exactly 100 animated particles
+    for (let i = 0; i < 100; i++) {
+        const particle = document.createElement("div");
+        particle.className = "float";
+
+        // Make her name appear throughout the heart explosion
+        particle.textContent = i % 5 === 0
+            ? "KEENU 💗"
+            : symbols[Math.floor(Math.random() * symbols.length)];
+
+        particle.style.left = (Math.random() * 100) + "vw";
+        particle.style.top = (20 + Math.random() * 60) + "vh";
+        particle.style.fontSize =
+            (i % 5 === 0 ? 17 : 20 + Math.random() * 25) + "px";
+
+        particle.style.fontWeight = "bold";
+        particle.style.color = "#e52d79";
+
+        particle.style.setProperty("--x",
+            (Math.random() * 240 - 120) + "px");
+        particle.style.setProperty("--y",
+            (Math.random() * 240 - 120) + "px");
+        particle.style.setProperty("--x2",
+            (Math.random() * 700 - 350) + "px");
+        particle.style.setProperty("--y2",
+            (-200 - Math.random() * 600) + "px");
+
+        layer.appendChild(particle);
+
+        setTimeout(() => particle.remove(), 3000);
+    }
+}
+
+function sayYes() {
+    if (accepted) return;
+    accepted = true;
+
+    document.getElementById("message").innerHTML =
+        "🚨 BREAKING NEWS 🚨<br>" +
+        "KEENU RANA SAID YESSSS!!! 🥳💗<br>" +
+        "SUNDAY = FULL PAGALPANTI 🔥🍟";
+
+    document.getElementById("yes").textContent =
+        "DATE CONFIRMED 💅";
+
+    document.getElementById("no").style.display = "none";
+
+    explodeHearts();
+
+    const card = document.getElementById("card");
+    card.classList.add("shake");
+
+    setTimeout(() => card.classList.remove("shake"), 500);
+
+    // A second wave of hearts
+    setTimeout(explodeHearts, 700);
+    setTimeout(explodeHearts, 1400);
+}
+
+let noCount = 0;
+
+function sayNo() {
+    noCount++;
+
+    const messages = [
+        "ARE YOU SERIOUS, KEENU? 😭😂",
+        "SYSTEM ERROR: TRY AGAIN 🤡",
+        "KEENU.EXE HAS STOPPED WORKING 💀",
+        "OKAY, YOUR CHOICE 😂💗"
+    ];
+
+    document.getElementById("message").textContent =
+        messages[Math.min(noCount - 1, messages.length - 1)];
+
+    const card = document.getElementById("card");
+    card.classList.remove("shake");
+    void card.offsetWidth;
+    card.classList.add("shake");
+
+    if (noCount === 1) {
+        document.getElementById("no").textContent = "ARE YOU SURE? 👀";
+    } else if (noCount === 2) {
+        document.getElementById("no").textContent = "FINAL ANSWER? 😂";
+    } else {
+        document.getElementById("no").textContent = "OKAY 😭";
+    }
+}
+</script>
+
+</body>
+</html>
